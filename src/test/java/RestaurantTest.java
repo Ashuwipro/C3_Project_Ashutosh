@@ -14,11 +14,19 @@ class RestaurantTest {
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE
+        LocalTime openingTime= LocalTime.now().minusHours(1);
+        LocalTime closingTime= LocalTime.now().plusHours(1);
+        restaurant=new Restaurant("My restaurant","Lucknow",openingTime,closingTime);
+        assertTrue(restaurant.isRestaurantOpen());
     }
 
     @Test
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE
+        LocalTime openingTime=LocalTime.now().minusHours(6);
+        LocalTime closingTime=LocalTime.now().minusHours(2);
+        restaurant=new Restaurant("My restaurant","Lucknow",openingTime,closingTime);
+        assertFalse(restaurant.isRestaurantOpen());
 
     }
 
