@@ -32,6 +32,20 @@ class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //<<<<<<<<<<<<<<<<<<<<<<<<<Part 3: Adding Feature>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void diplay_total_price_user_has_to_pay_after_selecting_items(){
+        //adding a restaurant with two items
+        LocalTime openingTime = LocalTime.parse("22:30:00");
+        LocalTime closingTime = LocalTime.parse("04:00:00");
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        //checking if total price is same as the sum of both items or not
+        int price= restaurant.getTotalPrice("Sweet corn soup","Vegetable lasagne");
+        assertEquals(388,price);
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<Part 3: Adding Feature>>>>>>>>>>>>>>>>>>>
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
